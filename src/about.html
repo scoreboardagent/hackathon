@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About - MLB™ AI Companion Scoreboard Agent</title>
+    <link rel="stylesheet" href="styles/main.css">
+    
+    <!-- PWA Support -->
+    <link rel="manifest" href="manifest.json">
+    <meta name="theme-color" content="#002D72"> <!-- MLB Blue -->
+    <link rel="apple-touch-icon" href="images/icons/icon-192x192.png">
+</head>
+<body data-theme="light">
+    <div id="app-container">
+        <!-- Header Section -->
+        <header>
+            <nav>
+                <div class="logo">
+                    <a href="index.html">
+                        <img src="images/logo.svg" alt="MLB™ AI Companion">
+                    </a>
+                </div>
+                <div class="nav-controls">
+                    <a href="index.html" class="nav-button">Back to App</a>
+                    <button id="languageToggle">English</button>
+                    <button id="themeToggle">🌙</button>
+                </div>
+            </nav>
+        </header>
+
+        <!-- About Content -->
+        <main class="about-page">
+            <div class="hero-section">
+                <h1>MLB™ AI Companion</h1>
+                <p class="tagline">Your Personal Baseball Expert</p>
+                <p class="description">An innovative fan engagement platform combining real-time game statistics with an AI-powered baseball expert companion.</p>
+            </div>
+
+            <div class="features-section">
+                <div class="feature-grid">
+                    <div class="feature-box updates">
+                        <div class="icon">🎯</div>
+                        <h3>Real-Time Updates</h3>
+                        <ul>
+                            <li><span class="star">★</span> Live game statistics via GUMBO data feed</li>
+                            <li><span class="star">★</span> Pitch-by-pitch updates</li>
+                            <li><span class="star">★</span> Player statistics and metrics</li>
+                            <li><span class="star">★</span> Team standings and context</li>
+                        </ul>
+                    </div>
+
+                    <div class="feature-box ai">
+                        <div class="icon">🤖</div>
+                        <h3>AI Baseball Expert</h3>
+                        <ul>
+                            <li><span class="star">★</span> Powered by Google Cloud Gemini</li>
+                            <li><span class="star">★</span> Natural language interaction</li>
+                            <li><span class="star">★</span> Strategic game explanations</li>
+                            <li><span class="star">★</span> Multi-language support (EN/ES/JP)</li>
+                        </ul>
+                    </div>
+
+                    <div class="feature-box interface">
+                        <div class="icon">📱</div>
+                        <h3>Adaptive Interface</h3>
+                        <ul>
+                            <li><span class="star">★</span> Responsive mobile & desktop design</li>
+                            <li><span class="star">★</span> Portrait: Compact scoreboard</li>
+                            <li><span class="star">★</span> Landscape: Full statistics view</li>
+                            <li><span class="star">★</span> Desktop: Split-screen layout</li>
+                        </ul>
+                    </div>
+
+                    <div class="feature-box education">
+                        <div class="icon">📚</div>
+                        <h3>Educational Tools</h3>
+                        <ul>
+                            <li><span class="star">★</span> Interactive baseball glossary</li>
+                            <li><span class="star">★</span> Real-time strategy insights</li>
+                            <li><span class="star">★</span> Play prediction analysis</li>
+                            <li><span class="star">★</span> Personalized learning path</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="tech-section">
+                <h2>Powered By</h2>
+                <div class="tech-grid">
+                    <div class="tech-item">
+                        <img src="images/tech/google-cloud.svg" alt="Google Cloud">
+                        <span>Google Cloud</span>
+                    </div>
+                    <div class="tech-item">
+                        <img src="images/tech/mlb.svg" alt="MLB GUMBO">
+                        <span>MLB GUMBO</span>
+                    </div>
+                    <div class="tech-item">
+                        <img src="images/tech/firebase.svg" alt="Firebase">
+                        <span>Firebase</span>
+                    </div>
+                    <div class="tech-item">
+                        <img src="images/tech/cloud-run.svg" alt="Gemini AI">
+                        <span>Gemini AI</span>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- Scripts -->
+    <script type="module" src="js/ui-controller.js"></script>
+</body>
+</html> 

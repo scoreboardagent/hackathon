@@ -1,0 +1,1094 @@
+:root {
+  /* MLB Colors */
+  --mlb-blue: #002D72;
+  --mlb-red: #E31837;
+  --dark-bg: #1a1a1a;
+  --light-bg: #ffffff;
+  --accent-color: #FFD700;
+  --text-primary: #333333;
+  --text-secondary: #666666;
+}
+
+/* Dark theme variables */
+[data-theme="dark"] {
+  --light-bg: #1a1a1a;
+  --text-primary: #ffffff;
+  --text-secondary: #cccccc;
+}
+
+body {
+  background-color: var(--light-bg);
+  color: var(--text-primary);
+  font-family: 'Arial', sans-serif;
+  margin: 0;
+  transition: all 0.3s ease;
+}
+
+/* Header Styles */
+header {
+  background: linear-gradient(135deg, var(--mlb-blue), #001a41);
+  background-size: 200% 200%;
+  animation: gradientShift 15s ease infinite;
+  padding: 1rem;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.nav-controls button {
+  background: transparent;
+  border: 2px solid var(--accent-color);
+  color: white;
+  padding: 0.5rem 1rem;
+  border-radius: 20px;
+  margin-left: 1rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.nav-controls button:hover {
+  background-color: var(--accent-color);
+  color: var(--mlb-blue);
+}
+
+/* Main Content Styles */
+main {
+  max-width: 1200px;
+  margin: 2rem auto;
+  padding: 0 1rem;
+  position: relative;
+  z-index: 1;
+}
+
+/* Scoreboard Section - Enhanced Styles */
+#scoreboard {
+    background: linear-gradient(135deg, var(--mlb-blue), #001a41);
+    border-radius: 15px;
+    padding: 2.5rem;
+    color: white;
+    margin-bottom: 2rem;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.15);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.game-info {
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 12px;
+    padding: 1.5rem;
+    backdrop-filter: blur(10px);
+}
+
+.teams {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin-bottom: 2rem;
+}
+
+.team {
+    text-align: center;
+    flex: 1;
+}
+
+.team-logo {
+    width: 80px;
+    height: 80px;
+    margin-bottom: 1rem;
+    filter: drop-shadow(0 4px 6px rgba(0, 0, 0, 0.2));
+}
+
+.team-logo:hover {
+    transform: scale(1.1) rotate(5deg);
+}
+
+.team-name {
+    font-size: 1.8rem;
+    margin: 0.5rem 0;
+    font-weight: 600;
+}
+
+.score {
+    font-size: 3.5rem;
+    font-weight: bold;
+    margin: 0.5rem 0;
+    color: var(--accent-color);
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    position: relative;
+}
+
+.score::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 50%;
+    width: 0;
+    height: 2px;
+    background: var(--accent-color);
+    transition: all 0.3s ease;
+    transform: translateX(-50%);
+}
+
+.score:hover::after {
+    width: 100%;
+}
+
+.vs {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: var(--accent-color);
+    margin: 0 2rem;
+}
+
+.game-details {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    background: rgba(0, 0, 0, 0.2);
+    border-radius: 8px;
+    padding: 1rem;
+    margin-top: 1.5rem;
+}
+
+.inning, .count {
+    text-align: center;
+}
+
+.inning-label {
+    font-size: 1.2rem;
+    color: var(--accent-color);
+    margin-right: 0.5rem;
+}
+
+.inning-value {
+    font-size: 1.4rem;
+    font-weight: 600;
+}
+
+.count {
+    display: flex;
+    gap: 1.5rem;
+}
+
+.count span {
+    font-size: 1.2rem;
+}
+
+.balls, .strikes, .outs {
+    color: var(--accent-color);
+    font-weight: 600;
+}
+
+/* Live Stats Section */
+.live-stats {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+    margin-top: 2rem;
+}
+
+.stat-card {
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 10px;
+    padding: 1.5rem;
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.stat-card h3 {
+    color: var(--accent-color);
+    margin: 0 0 1rem 0;
+    font-size: 1.3rem;
+}
+
+.batter-stats, .pitcher-stats {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+    text-align: center;
+}
+
+.batter-stats p, .pitcher-stats p {
+    margin: 0.5rem 0;
+    font-size: 1.1rem;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    #scoreboard {
+        padding: 1.5rem;
+    }
+
+    .team-logo {
+        width: 60px;
+        height: 60px;
+    }
+
+    .team-name {
+        font-size: 1.4rem;
+    }
+
+    .score {
+        font-size: 2.8rem;
+    }
+
+    .live-stats {
+        grid-template-columns: 1fr;
+    }
+
+    .count {
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+}
+
+/* Chat Container Styles */
+.chat-container {
+    background: linear-gradient(145deg, rgba(0, 45, 114, 0.95), rgba(0, 26, 65, 0.95));
+    border-radius: 20px;
+    padding: 1.5rem;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+    backdrop-filter: blur(10px);
+}
+
+.chat-header {
+    text-align: center;
+    margin-bottom: 1.5rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.chat-header h2 {
+    font-size: 2rem;
+    margin: 0;
+    background: linear-gradient(45deg, var(--accent-color), #FFA500);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.chat-subtitle {
+    color: rgba(255, 255, 255, 0.8);
+    font-size: 1.1rem;
+    margin: 0.5rem 0 0;
+}
+
+.chat-messages {
+    height: 400px;
+    overflow-y: auto;
+    padding: 1.5rem;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 15px;
+    margin-bottom: 1.5rem;
+    scrollbar-width: thin;
+    scrollbar-color: var(--accent-color) rgba(255, 255, 255, 0.1);
+}
+
+.chat-messages::-webkit-scrollbar {
+    width: 6px;
+}
+
+.chat-messages::-webkit-scrollbar-track {
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 3px;
+}
+
+.chat-messages::-webkit-scrollbar-thumb {
+    background: var(--accent-color);
+    border-radius: 3px;
+}
+
+.message {
+    margin-bottom: 1rem;
+    padding: 1rem;
+    border-radius: 15px;
+    max-width: 85%;
+    animation: fadeInUp 0.5s ease-out forwards;
+    opacity: 0;
+}
+
+.message.system {
+    background: rgba(255, 255, 255, 0.1);
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    max-width: 90%;
+}
+
+.message.system ul {
+    text-align: left;
+    margin: 1rem 0;
+    padding-left: 1.5rem;
+    list-style: none;
+}
+
+.message.system li {
+    margin: 0.5rem 0;
+    color: rgba(255, 255, 255, 0.9);
+    padding-left: 0;
+}
+
+.message.system li:before {
+    content: none;
+}
+
+.chat-input {
+    display: flex;
+    gap: 1rem;
+    margin-top: 1rem;
+    align-items: flex-end;
+}
+
+.chat-input textarea {
+    flex: 1;
+    padding: 1rem;
+    border-radius: 15px;
+    border: 2px solid rgba(255, 255, 255, 0.1);
+    background: rgba(255, 255, 255, 0.05);
+    color: white;
+    font-size: 1rem;
+    resize: none;
+    min-height: 50px;
+    max-height: 150px;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.chat-input textarea:focus {
+    outline: none;
+    border-color: var(--accent-color);
+    background: rgba(255, 255, 255, 0.08);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+.input-buttons {
+    display: flex;
+    gap: 0.5rem;
+}
+
+.chat-input button {
+    padding: 0.8rem 1.5rem;
+    border-radius: 12px;
+    border: none;
+    background: var(--accent-color);
+    color: var(--mlb-blue);
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 44px;
+    position: relative;
+    overflow: hidden;
+}
+
+.chat-input button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(255, 215, 0, 0.3);
+}
+
+.chat-input button::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    transition: width 0.6s ease, height 0.6s ease;
+}
+
+.chat-input button:hover::before {
+    width: 300px;
+    height: 300px;
+}
+
+#voiceInput {
+    background: transparent;
+    border: 2px solid var(--accent-color);
+    color: var(--accent-color);
+}
+
+#voiceInput:hover {
+    background: var(--accent-color);
+    color: var(--mlb-blue);
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes floatAnimation {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-10px);
+    }
+}
+
+@keyframes gradientShift {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .chat-container {
+        padding: 1rem;
+        border-radius: 15px;
+    }
+
+    .chat-messages {
+        height: 350px;
+        padding: 1rem;
+    }
+
+    .chat-input {
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+
+    .input-buttons {
+        width: 100%;
+    }
+
+    .chat-input button {
+        flex: 1;
+    }
+}
+
+/* Loading Spinner */
+.spinner {
+  width: 50px;
+  height: 50px;
+  border: 5px solid var(--mlb-blue);
+  border-top: 5px solid var(--accent-color);
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* Error State */
+#error {
+  background-color: var(--mlb-red);
+  color: white;
+  padding: 2rem;
+  border-radius: 10px;
+  text-align: center;
+}
+
+/* Project Description Styles */
+#project-description {
+  background: var(--mlb-blue);
+  color: white;
+  padding: 1rem;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.description-content {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.project-intro {
+    font-size: 1.2rem;
+    line-height: 1.6;
+    margin: 1rem 0 2rem;
+}
+
+.feature-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.5rem;
+    margin: 2rem 0;
+}
+
+.feature-card {
+    background: rgba(255, 255, 255, 0.1);
+    padding: 1.5rem;
+    border-radius: 8px;
+    transition: transform 0.3s ease;
+}
+
+.feature-card:hover {
+    transform: translateY(-5px);
+}
+
+.feature-card h3 {
+    color: var(--accent-color);
+    margin-top: 0;
+}
+
+.feature-card ul {
+    list-style: none;
+    padding: 0;
+}
+
+.feature-card li {
+  margin: 0.5rem 0;
+  padding-left: 1.5rem;
+  position: relative;
+}
+
+.feature-card li:before {
+  content: "★";
+  color: #FFD700;
+  position: absolute;
+  left: 0;
+  font-size: 0.8rem;
+}
+
+.tech-stack {
+  text-align: center;
+  margin: 2rem 0;
+}
+
+.tech-icons {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.tech-item {
+    background: rgba(255, 255, 255, 0.1);
+    padding: 0.8rem 1.5rem;
+    border-radius: 20px;
+    font-size: 1rem;
+    color: white;
+    transition: transform 0.3s ease;
+    display: inline-block;
+    margin: 0.5rem;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+}
+
+.tech-item:hover {
+    transform: translateY(-3px);
+    background: rgba(255, 255, 255, 0.15);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+.tech-item.visible {
+  animation: fadeInUp 0.6s ease-out forwards;
+}
+
+.description-toggle {
+  display: none;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  main {
+    padding: 0 0.5rem;
+  }
+  
+  .nav-controls button {
+    padding: 0.3rem 0.8rem;
+    font-size: 0.9rem;
+  }
+  
+  #scoreboard {
+    padding: 1rem;
+  }
+}
+
+/* Update layout for better spacing */
+#app-container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+main {
+  flex: 1;
+  padding: 1rem;
+}
+
+/* About Page Styles - Enhanced */
+.about-page {
+    background: linear-gradient(135deg, #001a41, #002D72);
+    color: white;
+    min-height: 100vh;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Hero Section Enhancement */
+.hero-section {
+    text-align: center;
+    padding: 6rem 2rem 4rem;
+    background: linear-gradient(160deg, rgba(0, 45, 114, 0.9), rgba(0, 26, 65, 0.95));
+    position: relative;
+    overflow: hidden;
+}
+
+.hero-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: url('images/pattern.svg') center/cover;
+    opacity: 0.1;
+    z-index: 0;
+}
+
+.hero-section h1 {
+    font-size: 4rem;
+    margin: 0;
+    background: linear-gradient(45deg, #FFD700, #FFA500, #FFD700);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+    position: relative;
+    animation: titleGlow 3s ease-in-out infinite;
+}
+
+.hero-section .tagline {
+    font-size: 1.8rem;
+    margin: 1.5rem 0;
+    color: #FFD700;
+    font-weight: 500;
+    text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+    position: relative;
+}
+
+.hero-section .description {
+    max-width: 800px;
+    margin: 2rem auto;
+    font-size: 1.3rem;
+    line-height: 1.7;
+    color: rgba(255, 255, 255, 0.9);
+    position: relative;
+}
+
+/* Features Section Enhancement */
+.features-section {
+    padding: 6rem 2rem;
+    background: rgba(255,255,255,0.02);
+    position: relative;
+}
+
+.feature-box {
+    background: rgba(255,255,255,0.05);
+    border-radius: 20px;
+    padding: 2.5rem;
+    transition: all 0.4s ease;
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255,255,255,0.1);
+    position: relative;
+    overflow: hidden;
+}
+
+.feature-box::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, #FFD700, transparent);
+    transform: scaleX(0);
+    transition: transform 0.4s ease;
+}
+
+.feature-box:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 15px 30px rgba(0,0,0,0.3);
+    background: rgba(255,255,255,0.08);
+}
+
+.feature-box:hover::before {
+    transform: scaleX(1);
+}
+
+.feature-box .icon {
+    font-size: 3rem;
+    margin-bottom: 1.5rem;
+    background: linear-gradient(45deg, #FFD700, #FFA500);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.feature-box h3 {
+    color: #FFD700;
+    margin: 1rem 0;
+    font-size: 1.8rem;
+    font-weight: 600;
+}
+
+.feature-box li {
+    margin: 1rem 0;
+    padding-left: 1.8rem;
+    position: relative;
+    line-height: 1.5;
+    color: rgba(255, 255, 255, 0.9);
+}
+
+.feature-box li:before {
+    content: "★";
+    color: #FFD700;
+    position: absolute;
+    left: 0;
+    font-size: 0.8rem;
+}
+
+/* Tech Section Enhancement */
+.tech-section {
+    padding: 6rem 2rem;
+    text-align: center;
+    background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(0,45,114,0.3));
+}
+
+.tech-section h2 {
+    color: #FFD700;
+    margin-bottom: 4rem;
+    font-size: 2.5rem;
+    text-shadow: 0 2px 4px rgba(0,0,0,0.2);
+}
+
+.tech-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 3rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.tech-item {
+    background: rgba(255,255,255,0.05);
+    padding: 2rem;
+    border-radius: 15px;
+    transition: all 0.4s ease;
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255,255,255,0.1);
+}
+
+.tech-item:hover {
+    transform: translateY(-10px);
+    background: rgba(255,255,255,0.1);
+    box-shadow: 0 15px 30px rgba(0,0,0,0.2);
+}
+
+.tech-item img {
+    width: 80px;
+    height: 80px;
+    object-fit: contain;
+    margin-bottom: 1rem;
+    filter: drop-shadow(0 4px 6px rgba(0,0,0,0.2));
+}
+
+.tech-item span {
+    font-size: 1.2rem;
+    color: #FFD700;
+    font-weight: 500;
+}
+
+@keyframes titleGlow {
+    0%, 100% {
+        text-shadow: 0 0 20px rgba(255, 215, 0, 0.1);
+    }
+    50% {
+        text-shadow: 0 0 30px rgba(255, 215, 0, 0.3);
+    }
+}
+
+/* Responsive Design Enhancements */
+@media (max-width: 768px) {
+    .hero-section {
+        padding: 4rem 1.5rem;
+    }
+
+    .hero-section h1 {
+        font-size: 2.8rem;
+    }
+
+    .hero-section .tagline {
+        font-size: 1.4rem;
+    }
+
+    .hero-section .description {
+        font-size: 1.1rem;
+    }
+
+    .features-section {
+        padding: 4rem 1.5rem;
+    }
+
+    .feature-box {
+        padding: 2rem;
+    }
+
+    .tech-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 2rem;
+    }
+
+    .tech-item img {
+        width: 60px;
+        height: 60px;
+    }
+}
+
+.nav-button {
+    background: transparent;
+    border: 2px solid var(--accent-color);
+    color: white;
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+    text-decoration: none;
+    margin-right: 1rem;
+    transition: all 0.3s ease;
+}
+
+.nav-button:hover {
+    background: var(--accent-color);
+    color: var(--mlb-blue);
+}
+
+/* Update existing feature card styles */
+.feature-card {
+    background: rgba(255, 255, 255, 0.1);
+    padding: 1.5rem;
+    border-radius: 8px;
+    transition: transform 0.3s ease;
+}
+
+.feature-card:hover {
+    transform: translateY(-5px);
+}
+
+/* Scrolling Feature Cards */
+.scroll-container {
+    width: 100%;
+    overflow: hidden;
+    background: var(--mlb-blue);
+    padding: 2rem 0;
+    position: relative;
+}
+
+.scroll-content {
+    display: flex;
+    gap: 2rem;
+    padding: 1rem;
+    animation: scroll 30s linear infinite;
+    width: max-content; /* Allows content to determine width */
+}
+
+.feature-card {
+    min-width: 300px;
+    background: rgba(255, 255, 255, 0.1);
+    padding: 1.5rem;
+    border-radius: 8px;
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    color: white;
+}
+
+.feature-card h3 {
+    color: #FFD700; /* Gold accent color */
+    margin-top: 0;
+    font-size: 1.5rem;
+}
+
+.feature-card ul {
+    list-style: none;
+    padding: 0;
+    margin: 1rem 0;
+}
+
+.feature-card li {
+    margin: 0.8rem 0;
+    padding-left: 1.5rem;
+    position: relative;
+    line-height: 1.4;
+}
+
+.feature-card li:before {
+    content: "★";
+    color: #FFD700;
+    position: absolute;
+    left: 0;
+    font-size: 0.8rem;
+}
+
+/* Scrolling Animation */
+@keyframes scroll {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(calc(-300px * 4 - 8rem)); /* Width of 4 cards + gaps */
+    }
+}
+
+/* Hover effect that pauses the animation */
+.scroll-container:hover .scroll-content {
+    animation-play-state: paused;
+}
+
+/* Add gradient masks for smooth fade effect */
+.scroll-container::before,
+.scroll-container::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    height: 100%;
+    width: 100px;
+    z-index: 2;
+}
+
+.scroll-container::before {
+    left: 0;
+    background: linear-gradient(to right, var(--mlb-blue), transparent);
+}
+
+.scroll-container::after {
+    right: 0;
+    background: linear-gradient(to left, var(--mlb-blue), transparent);
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .feature-card {
+        min-width: 250px;
+    }
+    
+    @keyframes scroll {
+        0% {
+            transform: translateX(0);
+        }
+        100% {
+            transform: translateX(calc(-250px * 4 - 8rem));
+        }
+    }
+}
+
+/* Update feature card list styles */
+.feature-card li:before {
+    content: "★";
+    color: #FFD700;
+    position: absolute;
+    left: 0;
+    font-size: 0.8rem;
+}
+
+/* Update scrolling feature cards list styles */
+.scroll-content .feature-card li:before {
+    content: "★";
+    color: #FFD700;
+    position: absolute;
+    left: 0;
+    font-size: 0.8rem;
+}
+
+/* Update any remaining bullet points in other lists */
+.message.system li:before {
+    content: none;
+}
+
+/* Star styling for feature boxes */
+.feature-box .star {
+    color: #FFD700;
+    margin-right: 0.5rem;
+    font-size: 0.8rem;
+    position: absolute;
+    left: 0;
+}
+
+.feature-box li {
+    position: relative;
+    padding-left: 1.8rem;
+    margin: 1rem 0;
+}
+
+/* Animation Base Styles */
+.animate-on-scroll {
+    opacity: 1;
+    transform: none;
+}
+
+/* Specific animations for different elements */
+#scoreboard.animate-on-scroll {
+    transform: translateY(50px);
+}
+
+#ai-companion.animate-on-scroll {
+    transform: translateY(50px);
+}
+
+.tech-item.animate-on-scroll {
+    transform: translateY(30px);
+}
+
+/* Remove any conflicting animations */
+#scoreboard {
+    transform-origin: center;
+    transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.chat-container {
+    transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Ensure proper stacking context */
+main {
+    position: relative;
+    z-index: 1;
+}
+
+/* Stagger animations for different sections */
+#scoreboard.animate-on-scroll {
+    animation-delay: 0.2s;
+}
+
+#ai-companion.animate-on-scroll {
+    animation-delay: 0.4s;
+}
+
+.tech-item.animate-on-scroll:nth-child(1) { animation-delay: 0.1s; }
+.tech-item.animate-on-scroll:nth-child(2) { animation-delay: 0.2s; }
+.tech-item.animate-on-scroll:nth-child(3) { animation-delay: 0.3s; }
+.tech-item.animate-on-scroll:nth-child(4) { animation-delay: 0.4s; }
+
+/* Ensure elements are visible by default on mobile */
+@media (max-width: 768px) {
+    .animate-on-scroll {
+        opacity: 1;
+        transform: translateY(0);
+    }
+} 
