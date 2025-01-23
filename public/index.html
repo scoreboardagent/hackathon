@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MLB™ AI Companion Scoreboard Agent</title>
+    <link rel="stylesheet" href="styles/main.css">
+    <!-- Firebase SDK -->
+    <script type="module" src="https://www.gstatic.com/firebasejs/11.2.0/firebase-app.js"></script>
+    <script type="module" src="https://www.gstatic.com/firebasejs/11.2.0/firebase-analytics.js"></script>
+    
+    <!-- PWA Support -->
+    <link rel="manifest" href="manifest.json">
+    <meta name="theme-color" content="#002D72"> <!-- MLB Blue -->
+    <link rel="apple-touch-icon" href="images/icons/icon-192x192.png">
+</head>
+<body>
+    <div id="app-container">
+        <!-- Header Section -->
+        <header>
+            <nav>
+                <div class="logo">
+                    <img src="images/logo.svg" alt="MLB™ AI Companion">
+                </div>
+                <div class="nav-controls">
+                    <button id="languageToggle">English</button>
+                    <button id="themeToggle">🌙</button>
+                </div>
+            </nav>
+        </header>
+
+        <!-- Main Content -->
+        <main>
+            <!-- Scoreboard Section -->
+            <section id="scoreboard">
+                <div class="game-info">
+                    <!-- Dynamic game data will be inserted here -->
+                </div>
+                <div class="live-stats">
+                    <!-- Real-time statistics will be displayed here -->
+                </div>
+            </section>
+
+            <!-- AI Companion Chat -->
+            <section id="ai-companion">
+                <div class="chat-container">
+                    <div class="chat-messages">
+                        <!-- Chat messages will appear here -->
+                    </div>
+                    <div class="chat-input">
+                        <textarea id="userInput" placeholder="Ask about the game..."></textarea>
+                        <button id="sendMessage">Send</button>
+                        <button id="voiceInput">🎤</button>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <!-- Educational Sidebar -->
+        <aside id="educational-features" class="hidden">
+            <div class="glossary">
+                <h3>Baseball Glossary</h3>
+                <!-- Dynamic glossary content -->
+            </div>
+            <div class="strategy-insights">
+                <h3>Strategy Insights</h3>
+                <!-- Real-time strategy explanations -->
+            </div>
+        </aside>
+    </div>
+
+    <!-- Loading State -->
+    <div id="loading" class="hidden">
+        <div class="spinner"></div>
+        <p>Loading game data...</p>
+    </div>
+
+    <!-- Error State -->
+    <div id="error" class="hidden">
+        <p>Unable to load game data. Please try again.</p>
+        <button id="retryButton">Retry</button>
+    </div>
+
+    <!-- Scripts -->
+    <script type="module" src="js/app.js"></script>
+    <script type="module" src="js/firebase-config.js"></script>
+    <script type="module" src="js/mlb-api.js"></script>
+    <script type="module" src="js/ai-companion.js"></script>
+    <script type="module" src="js/ui-controller.js"></script>
+
+    <!-- Service Worker Registration -->
+    <script>
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', () => {
+                navigator.serviceWorker.register('/sw.js')
+                    .then(registration => console.log('ServiceWorker registered'))
+                    .catch(err => console.log('ServiceWorker registration failed:', err));
+            });
+        }
+    </script>
+</body>
+</html>
